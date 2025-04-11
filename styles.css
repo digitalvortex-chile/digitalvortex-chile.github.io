@@ -469,3 +469,11 @@ footer {
         grid-template-columns: 1fr; /* Ensure only one card per row for small screens */
     }
 }
+
+.profile-image {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 1rem;
+    }
