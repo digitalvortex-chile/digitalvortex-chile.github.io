@@ -463,3 +463,9 @@ footer {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+@media (max-width: 550px) {
+    .cases-grid {
+        grid-template-columns: 1fr; /* Ensure only one card per row for small screens */
+    }
+}
