@@ -340,6 +340,22 @@ header {
     color: #be7475;
 }
 
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1rem;
+    border: 3px solid #be7475;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.team-card:hover .profile-image {
+    transform: scale(1.05);
+    border-color: #616160;
+}
+
 .team-member-name {
     font-weight: 500;
     color: #444;
@@ -464,18 +480,13 @@ footer {
     }
 }
 
-.profile-image {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        object-fit: cover;
-        display: block;
-        margin: 0 auto 1rem auto; /* Center the image and add spacing */
+@media (max-width: 550px) {
+    .cases-grid {
+        grid-template-columns: 1fr; /* Ensure only one card per row for small screens */
     }
 
-    @media (max-width: 550px) {
-        .profile-image {
-            width: 80px;
-            height: 80px;
-        }
+    .profile-image {
+        width: 80px; /* Adjust size for smaller screens */
+        height: 80px;
     }
+}
