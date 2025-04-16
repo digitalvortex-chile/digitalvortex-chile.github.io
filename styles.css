@@ -269,6 +269,42 @@ header {
     margin-bottom: 1.5rem;
 }
 
+/* Core Principles list styling */
+.core-principles-heading {
+    color: #444;
+    margin: 1.5rem 0 1rem;
+    font-size: 1.2rem;
+}
+
+.principles-container {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.principle-item {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: baseline;
+}
+
+.principle-bullet {
+    color: #be7475;
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+    line-height: 1;
+}
+
+.principle-title {
+    font-weight: 600;
+    color: #444;
+    margin-right: 0.3rem;
+}
+
+.principle-desc {
+    color: #616160;
+    font-weight: normal;
+}
+
 /* Enhanced services grid */
 .services-grid {
     display: grid;
@@ -402,6 +438,13 @@ header {
     font-weight: 600;
 }
 
+.case-subtitle {
+    font-size: 0.95rem;
+    color: #be7475;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+}
+
 .case-duration {
     font-size: 0.9rem;
     color: #888;
@@ -412,6 +455,12 @@ header {
 .case-description {
     line-height: 1.6;
     color: #616160;
+}
+
+.institutional-relations-heading {
+    margin-top: 2.5rem;
+    color: #444;
+    font-weight: 600;
 }
 
 /* Footer styles */
