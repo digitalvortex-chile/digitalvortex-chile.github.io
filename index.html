@@ -8,26 +8,53 @@
     <meta name="keywords" content="digital vortex, business management, institutional relations, strategic consulting, investment funds, real estate management">
     <meta name="author" content="Digital Vortex">
     
+    <!-- Precargar recursos críticos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://digitalvortex.com/">
+    <meta property="og:url" content="https://digitalvortex.biz/">
     <meta property="og:title" content="Digital Vortex - Business Management & Institutional Relations">
     <meta property="og:description" content="Digital Vortex offers minimalist business management and institutional relations solutions focused on efficiency and effectiveness in commercial relationships.">
-    <meta property="og:image" content="https://digitalvortex.com/images/og-image.jpg">
+    <meta property="og:image" content="https://digitalvortex.biz/assets/logo%20Digital%20Vortex.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://digitalvortex.com/">
+    <meta property="twitter:url" content="https://digitalvortex.biz/">
     <meta property="twitter:title" content="Digital Vortex - Business Management & Institutional Relations">
     <meta property="twitter:description" content="Digital Vortex offers minimalist business management and institutional relations solutions focused on efficiency and effectiveness in commercial relationships.">
-    <meta property="twitter:image" content="https://digitalvortex.com/images/twitter-image.jpg">
+    <meta property="twitter:image" content="https://digitalvortex.biz/assets/logo%20Digital%20Vortex.png">
     
-    <link rel="canonical" href="https://digitalvortex.com/">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="canonical" href="https://digitalvortex.biz/">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="styles.css" rel="stylesheet">
+    
+    <!-- Estilo crítico inlinado -->
+    <style>
+        /* Estilos críticos para render inicial */
+        body {
+            font-family: "Roboto", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #616160;
+            background-color: white;
+        }
+        .navbar {
+            display: grid;
+            grid-template-columns: 1fr 8fr 1fr;
+            align-items: center;
+            background-color: white;
+            color: #616160;
+            border-bottom: 2px solid #be7475;
+        }
+    </style>
+    
+    <!-- Cargar CSS principal de manera no bloqueante -->
+    <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
@@ -39,7 +66,7 @@
             <div class="navbar-empty"></div>
             <div class="content-container">
                 <div class="logo">
-                    <img src="assets/logo Digital Vortex.png" alt="Digital Vortex Logo" style="height: 50px;">
+                    <img src="assets/logo Digital Vortex.png" alt="Digital Vortex Logo" width="auto" height="50">
                 </div>
                 <div class="menu-icon">
                     <i class="fas fa-bars"></i>
@@ -130,45 +157,18 @@
                     <div class="team-grid">
                         <div class="team-card">
                             <a href="https://www.linkedin.com/in/alfonso-viveros/" target="_blank">
-                                <img src="https://media.licdn.com/dms/image/v2/D4D03AQFrCQTk2fjsBQ/profile-displayphoto-shrink_400_400/B4DZYX3j6DGwAg-/0/1744157163610?e=1749686400&v=beta&t=bf1kMVPnyD5GpBe0yi6cNnHjIRrUl14jwuhLynUuzuo" alt="Alfonso Viveros" class="profile-image">
+                                <img src="https://media.licdn.com/dms/image/v2/D4D03AQFrCQTk2fjsBQ/profile-displayphoto-shrink_400_400/B4DZYX3j6DGwAg-/0/1744157163610?e=1749686400&v=beta&t=bf1kMVPnyD5GpBe0yi6cNnHjIRrUl14jwuhLynUuzuo" alt="Alfonso Viveros" class="profile-image" loading="lazy">
                                 <div class="team-member-name roboto-medium">Alfonso Viveros</div>
                                 <div class="team-member-role">Co-Founder</div>
                             </a>
                         </div>
                         <div class="team-card">
                             <a href="https://www.linkedin.com/in/carolina-campos-parra-b64b82186/" target="_blank">
-                                <img src="https://media.licdn.com/dms/image/v2/C4E03AQEn_oSG1NwmGA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1559588201666?e=1749686400&v=beta&t=DhYdE11xLP0_HgqFUFcfRNQrpdPKhSYYA2TtG6OtM8Q" alt="Carolina Campos" class="profile-image">
+                                <img src="https://media.licdn.com/dms/image/v2/C4E03AQEn_oSG1NwmGA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1559588201666?e=1749686400&v=beta&t=DhYdE11xLP0_HgqFUFcfRNQrpdPKhSYYA2TtG6OtM8Q" alt="Carolina Campos" class="profile-image" loading="lazy">
                                 <div class="team-member-name roboto-medium">Carolina Campos</div>
                                 <div class="team-member-role">General Manager</div>
                             </a>
                         </div>
-                        <!-- <div class="team-card">
-                            <img src="fotos/trinidad.jpg" alt="Trinidad Viveros" class="profile-image">
-                            <div class="team-member-name roboto-medium">Trinidad Viveros</div>
-                            <div class="team-member-role">Communications Director</div>
-                        </div>
-                        <div class="team-card">
-                            <img src="fotos/rodrigo.jpg" alt="Rodrigo Picas" class="profile-image">
-                            <div class="team-member-name roboto-medium">Rodrigo Picas</div>
-                            <div class="team-member-role">Associate Technology Consultant</div>
-                        </div>
-                        <div class="team-card">
-                            <img src="fotos/fernando.jpg" alt="Fernando Cassina" class="profile-image">
-                            <div class="team-member-name roboto-medium">Fernando Cassina</div>
-                            <div class="team-member-role">Associate Business Development Consultant</div>
-                        </div> -->
-                        
-                        <!-- <div class="team-card">
-                            <i class="fas fa-user-tie"></i>
-                            <div class="team-member-name roboto-medium">XXXX</div>
-                            <div class="team-member-role">Associate Consultant</div>
-                        </div>
-                        
-                        <div class="team-card">
-                            <i class="fas fa-user-tie"></i>
-                            <div class="team-member-name roboto-medium">YYYY</div>
-                            <div class="team-member-role">Associate Consultant</div>
-                        </div> -->
                     </div>
                 </div>
             </section>
@@ -232,48 +232,61 @@
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Digital Vortex",
-        "url": "https://digitalvortex.com",
-        "logo": "https://digitalvortex.com/images/logo.png",
+        "url": "https://digitalvortex.biz",
+        "logo": "https://digitalvortex.biz/assets/logo%20Digital%20Vortex.png",
         "description": "Digital Vortex offers minimalist business management and institutional relations solutions focused on efficiency and effectiveness in commercial relationships.",
         "contactPoint": {
             "@type": "ContactPoint",
-            "email": "contact@digitalvortex.com",
+            "email": "contact@digitalvortex.biz",
             "contactType": "customer service"
         },
         "sameAs": [
-            "https://www.instagram.com/digitalvortex",
             "https://www.linkedin.com/company/digitalvortex"
         ]
     }
     </script>
     
     <script>
+        // Cargar scripts de manera diferida para no bloquear el renderizado
         document.addEventListener('DOMContentLoaded', function() {
             const menuIcon = document.querySelector('.menu-icon');
             const dropdownMenu = document.querySelector('.dropdown-menu');
             
-            menuIcon.addEventListener('click', function() {
-                dropdownMenu.classList.toggle('show');
-            });
-            
-            // Close dropdown when clicking outside
-            window.addEventListener('click', function(event) {
-                if (!event.target.matches('.menu-icon') && 
-                    !event.target.matches('.fa-bars') && 
-                    !event.target.closest('.dropdown-menu')) {
-                    if (dropdownMenu.classList.contains('show')) {
-                        dropdownMenu.classList.remove('show');
-                    }
-                }
-            });
-            
-            // Close menu after clicking a link
-            const dropdownLinks = document.querySelectorAll('.dropdown-menu a');
-            dropdownLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    dropdownMenu.classList.remove('show');
+            if (menuIcon && dropdownMenu) {
+                menuIcon.addEventListener('click', function() {
+                    dropdownMenu.classList.toggle('show');
                 });
-            });
+                
+                // Close dropdown when clicking outside
+                window.addEventListener('click', function(event) {
+                    if (!event.target.matches('.menu-icon') && 
+                        !event.target.matches('.fa-bars') && 
+                        !event.target.closest('.dropdown-menu')) {
+                        if (dropdownMenu.classList.contains('show')) {
+                            dropdownMenu.classList.remove('show');
+                        }
+                    }
+                });
+                
+                // Close menu after clicking a link
+                const dropdownLinks = document.querySelectorAll('.dropdown-menu a');
+                dropdownLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        dropdownMenu.classList.remove('show');
+                    });
+                });
+            }
+
+            // Lazy loading para imágenes que no tienen el atributo
+            if ('loading' in HTMLImageElement.prototype) {
+                const images = document.querySelectorAll('img:not([loading])');
+                images.forEach(img => {
+                    img.setAttribute('loading', 'lazy');
+                });
+            } else {
+                // Fallback para navegadores que no soportan lazy loading nativo
+                // Se cargaría aquí una librería de lazy loading si fuera necesario
+            }
         });
     </script>
 </body>
