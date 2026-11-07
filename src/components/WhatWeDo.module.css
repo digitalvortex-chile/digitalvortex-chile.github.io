@@ -61,39 +61,92 @@
 /* Enhanced services grid */
 .servicesGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
     margin-top: 1.5rem;
 }
 
 .serviceCard {
-    background-color: #f8f8f8;
-    border-radius: 8px;
-    padding: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 3px solid transparent;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 1.75rem 1.5rem 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.3s ease,
+                box-shadow 0.35s ease;
+}
+
+/* Brand bar that grows along the top edge on hover */
+.serviceCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--brand);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .serviceCard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    border-left-color: #616160;
+    transform: translateY(-4px);
+    border-color: rgba(190, 116, 117, 0.5);
+    box-shadow: 0 14px 34px rgba(190, 116, 117, 0.14);
 }
 
+.serviceCard:hover::before {
+    transform: scaleX(1);
+}
+
+/* Icon inside a ringed circle, echoing the "O" of VORTEX */
 .serviceCardIcon {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: #be7475;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: var(--brand-tint);
+    color: var(--brand);
+    font-size: 1.35rem;
+    box-shadow: 0 0 0 6px #fff, 0 0 0 7px var(--brand-ring);
+    margin: 7px 0 1.4rem 7px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.4s ease;
+}
+
+.serviceCard:hover .serviceCardIcon {
+    background-color: var(--brand);
+    color: #fff;
+    transform: rotate(-8deg) scale(1.04);
 }
 
 .serviceName {
+    font-size: 1.05rem;
     font-weight: 500;
-    color: #444;
-    margin-bottom: 0.5rem;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+}
+
+.serviceCardDesc {
+    font-size: 0.92rem;
+    line-height: 1.55 !important;
+    margin-bottom: 0 !important;
+    color: var(--gray);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .serviceCard,
+    .serviceCard::before,
+    .serviceCardIcon {
+        transition: none;
+    }
 }
 
 @media (max-width: 768px) {

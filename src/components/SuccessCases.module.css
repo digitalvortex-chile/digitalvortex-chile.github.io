@@ -1,66 +1,238 @@
-.casesContainer {
-    margin-top: 2rem;
-}
-
 .casesGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.5rem;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
+    align-items: start;
 }
 
+/* ---------- Story card ---------- */
 .caseCard {
-    background-color: #f8f8f8;
-    border-radius: 8px;
-    padding: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 3px solid transparent;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-    height: 100%;
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
+    background-color: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 1.75rem 1.75rem 1.25rem;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.3s ease,
+                box-shadow 0.35s ease;
+}
+
+/* Faint vortex rings in the corner, echoing the logo */
+.caseCard::after {
+    content: '';
+    position: absolute;
+    top: -70px;
+    right: -70px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: repeating-radial-gradient(circle, transparent 0 14px, rgba(190, 116, 117, 0.09) 14px 15px);
+    pointer-events: none;
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.caseCard:hover,
+.caseOpen {
+    border-color: rgba(190, 116, 117, 0.5);
+    box-shadow: 0 16px 40px rgba(190, 116, 117, 0.13);
 }
 
 .caseCard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    border-color: #616160;
+    transform: translateY(-4px);
 }
 
-.caseCard h3 {
-    color: #444;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
+.caseCard:hover::after {
+    transform: rotate(90deg) scale(1.15);
 }
 
-.caseSubtitle {
-    font-size: 0.95rem;
-    color: #be7475;
-    margin-bottom: 0.8rem;
+.caseHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.1rem;
+}
+
+.caseNumber {
+    font-size: 0.85rem;
     font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--brand);
 }
 
-.caseDescription {
-    line-height: 1.6;
-    color: #616160;
+.caseTag {
+    padding: 0.28rem 0.75rem;
+    border-radius: 999px;
+    background-color: var(--brand-tint);
+    color: var(--brand-dark);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+}
+
+.caseClient {
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.25;
+    margin-bottom: 0.35rem !important;
+}
+
+.caseArea {
+    font-size: 0.9rem;
+    line-height: 1.5 !important;
+    color: var(--gray);
+    margin-bottom: 1.4rem !important;
+}
+
+/* ---------- Challenge → Approach → Impact timeline ---------- */
+.caseSteps {
+    list-style: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-left: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.caseSteps::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: linear-gradient(var(--brand-ring), var(--brand));
+}
+
+.caseStep {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.caseStep::before {
+    content: '';
+    position: absolute;
+    left: calc(-1.4rem + 1px);
+    top: 5px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 2px solid var(--brand);
+    box-sizing: border-box;
+}
+
+.caseStep:last-child::before {
+    background-color: var(--brand);
+}
+
+.stepLabel {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brand);
+}
+
+.stepText {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--ink);
+}
+
+/* ---------- Expandable full story ---------- */
+.caseStory {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.35s ease;
+}
+
+.caseOpen .caseStory {
+    grid-template-rows: 1fr;
+    opacity: 1;
+}
+
+.caseStoryInner {
+    overflow: hidden;
+}
+
+.caseStoryInner p {
+    margin: 0.75rem 0 0.25rem !important;
+    padding: 1rem 1.1rem;
+    border-radius: 10px;
+    background-color: var(--paper);
+    font-size: 0.93rem;
+    line-height: 1.7 !important;
+    color: var(--gray);
+}
+
+.caseToggle {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.9rem;
+    padding: 0.45rem 0;
+    border: none;
+    background: none;
+    color: var(--brand-dark);
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.caseToggle:hover {
+    color: var(--brand);
+}
+
+.caseToggle:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.caseChevron {
+    font-size: 0.7rem;
+    transition: transform 0.35s ease;
+}
+
+.caseOpen .caseChevron {
+    transform: rotate(180deg);
 }
 
 .institutionalRelationsHeading {
-    margin-top: 2.5rem;
-    color: #444;
-    font-weight: 600;
+    margin-top: 3rem;
+    color: var(--ink);
+    font-weight: 500;
     margin-bottom: 1rem;
     font-size: 1.2rem;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 768px) {
     .casesGrid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+    }
+
+    .caseCard {
+        padding: 1.5rem 1.25rem 1rem;
     }
 }
 
-@media (max-width: 550px) {
-    .casesGrid {
-        grid-template-columns: 1fr;
+@media (prefers-reduced-motion: reduce) {
+    .caseCard,
+    .caseCard::after,
+    .caseStory,
+    .caseChevron {
+        transition: none;
     }
 }

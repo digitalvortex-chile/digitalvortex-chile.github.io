@@ -1,12 +1,15 @@
+import { useLanguage } from '../i18n/context';
 import styles from './WhoWeAre.module.css';
 
 export default function WhoWeAre() {
+  const { t } = useLanguage();
+
   return (
     <section id="who-we-are" className="section">
-      <h2 className="roboto-bold">Who We Are</h2>
+      <h2 className="roboto-bold">{t.whoWeAre.title}</h2>
 
       <p className="service-description roboto-regular">
-        We are a cross-functional team of seasoned professionals with diverse expertise and a strong track record of success. Our collaborative approach combines strategic insight, technical know-how, and real-world experience to deliver impactful solutions across industries. Proven results, agile execution, and a shared commitment to excellence define who we are.
+        {t.whoWeAre.text}
       </p>
 
       <div className={styles.teamContainer}>
@@ -22,7 +25,7 @@ export default function WhoWeAre() {
                 height="140"
               />
               <div className={`${styles.teamMemberName} roboto-medium`}>Alfonso Viveros</div>
-              <div className={styles.teamMemberRole}>Co-Founder</div>
+              <div className={styles.teamMemberRole}>{t.whoWeAre.roles.alfonso}</div>
             </a>
           </div>
           <div className={styles.teamCard}>
@@ -36,7 +39,7 @@ export default function WhoWeAre() {
                 height="140"
               />
               <div className={`${styles.teamMemberName} roboto-medium`}>Carolina Campos</div>
-              <div className={styles.teamMemberRole}>General Manager</div>
+              <div className={styles.teamMemberRole}>{t.whoWeAre.roles.carolina}</div>
             </a>
           </div>
         </div>

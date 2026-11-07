@@ -1,67 +1,50 @@
 import { FaHandshake, FaChartLine, FaBuilding, FaCoins } from 'react-icons/fa';
+import { useLanguage } from '../i18n/context';
 import styles from './WhatWeDo.module.css';
 
+// Icons in the same order as t.whatWeDo.services
+const SERVICE_ICONS = [FaHandshake, FaChartLine, FaBuilding, FaCoins];
+
 export default function WhatWeDo() {
+  const { t } = useLanguage();
+  const copy = t.whatWeDo;
+
   return (
     <section id="what-we-do" className="section">
-      <h1 className="roboto-bold">What We Do</h1>
+      <h1 className="roboto-bold">{copy.title}</h1>
 
       <div className={styles.servicesContainer}>
         <div className={styles.serviceItem}>
-          <h3 className="roboto-medium">Business Management</h3>
-          <p className={`${styles.serviceDescription} roboto-regular`}>
-            Our business management philosophy is rooted in minimalism—prioritizing what truly matters to drive performance and foster strong commercial relationships. We streamline operations by focusing only on essential elements, eliminating unnecessary complexity, and aligning every effort with clear, measurable outcomes.
-          </p>
+          <h3 className="roboto-medium">{copy.businessTitle}</h3>
+          <p className={`${styles.serviceDescription} roboto-regular`}>{copy.businessText}</p>
 
-          <h4 className={`${styles.corePrinciplesHeading} roboto-medium`}>Core Principles:</h4>
+          <h4 className={`${styles.corePrinciplesHeading} roboto-medium`}>{copy.principlesTitle}</h4>
           <div className={styles.principlesContainer}>
-            <div className={styles.principleItem}>
-              <span className={styles.principleBullet}>•</span>
-              <span className={styles.principleTitle}>Clear Strategy:</span>
-              <span className={styles.principleDesc}>Focused, intentional direction that guides all decisions and actions.</span>
-            </div>
-            <div className={styles.principleItem}>
-              <span className={styles.principleBullet}>•</span>
-              <span className={styles.principleTitle}>Key Relationships:</span>
-              <span className={styles.principleDesc}>Prioritize and nurture high-impact partnerships for mutual growth.</span>
-            </div>
-            <div className={styles.principleItem}>
-              <span className={styles.principleBullet}>•</span>
-              <span className={styles.principleTitle}>Automation:</span>
-              <span className={styles.principleDesc}>Leverage smart systems to reduce manual work and increase consistency.</span>
-            </div>
-            <div className={styles.principleItem}>
-              <span className={styles.principleBullet}>•</span>
-              <span className={styles.principleTitle}>Constant Measurement:</span>
-              <span className={styles.principleDesc}>Track performance rigorously to stay agile and optimize continuously.</span>
-            </div>
-            <div className={styles.principleItem}>
-              <span className={styles.principleBullet}>•</span>
-              <span className={styles.principleTitle}>Simplicity:</span>
-              <span className={styles.principleDesc}>Eliminate clutter—keep structures, communication, and processes lean and effective.</span>
-            </div>
+            {copy.principles.map((principle) => (
+              <div key={principle.title} className={styles.principleItem}>
+                <span className={styles.principleBullet}>•</span>
+                <span className={styles.principleTitle}>{principle.title}</span>
+                <span className={styles.principleDesc}>{principle.text}</span>
+              </div>
+            ))}
           </div>
         </div>
 
         <div className={styles.serviceItem}>
-          <h3 className="roboto-medium">Institutional Relations</h3>
+          <h3 className="roboto-medium">{copy.institutionalTitle}</h3>
           <div className={styles.servicesGrid}>
-            <div className={styles.serviceCard}>
-              <FaHandshake className={styles.serviceCardIcon} />
-              <div className={`${styles.serviceName} roboto-medium`}>Representations</div>
-            </div>
-            <div className={styles.serviceCard}>
-              <FaChartLine className={styles.serviceCardIcon} />
-              <div className={`${styles.serviceName} roboto-medium`}>Strategic Consulting</div>
-            </div>
-            <div className={styles.serviceCard}>
-              <FaBuilding className={styles.serviceCardIcon} />
-              <div className={`${styles.serviceName} roboto-medium`}>Real Estate Management</div>
-            </div>
-            <div className={styles.serviceCard}>
-              <FaCoins className={styles.serviceCardIcon} />
-              <div className={`${styles.serviceName} roboto-medium`}>Investment Funds</div>
-            </div>
+            {copy.services.map((service, i) => {
+              const Icon = SERVICE_ICONS[i];
+              return (
+                <article key={service.name} className={styles.serviceCard}>
+                  <span className={styles.serviceCardIcon} aria-hidden="true">
+                    <Icon />
+                  </span>
+                  <h4 className={`${styles.serviceName} roboto-medium`}>{service.name}</h4>
+                  <p className={styles.serviceCardDesc}>{service.description}</p>
+                </article>
+              );
+            })}
           </div>
         </div>
       </div>
